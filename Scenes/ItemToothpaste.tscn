@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://d30mgcjg5u26l"]
+
+[ext_resource type="Script" path="res://Scripts/TouchPaste.gd" id="1_be7be"]
+[ext_resource type="Texture2D" uid="uid://bhcwqahfj12dl" path="res://Textures/Toothpaste.png" id="2_j0i0u"]
+[ext_resource type="AudioStream" uid="uid://d2hoesd4ewu3o" path="res://Sounds/crunch.3.ogg" id="3_rtrv8"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_06orc"]
+
+[node name="Paste" type="Area2D"]
+collision_layer = 3
+collision_mask = 4
+script = ExtResource("1_be7be")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_06orc")
+
+[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
+texture = ExtResource("2_j0i0u")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_rtrv8")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

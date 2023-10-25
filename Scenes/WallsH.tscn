@@ -1,0 +1,62 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2qr4f7rdpixu"]
+
+[ext_resource type="PackedScene" uid="uid://bggd4xrtyxi2i" path="res://Scenes/ObjectWall.tscn" id="1_xc7m7"]
+
+[node name="H-Walls" type="Node2D"]
+
+[node name="Wall2" parent="." instance=ExtResource("1_xc7m7")]
+position = Vector2(80, 80)
+
+[node name="Wall3" parent="." instance=ExtResource("1_xc7m7")]
+position = Vector2(80, 96)
+
+[node name="Wall4" parent="." instance=ExtResource("1_xc7m7")]
+position = Vector2(80, 112)
+
+[node name="Wall5" parent="." instance=ExtResource("1_xc7m7")]
+position = Vector2(80, 128)
+
+[node name="Wall6" parent="." instance=ExtResource("1_xc7m7")]
+position = Vector2(80, 144)
+
+[node name="Wall7" parent="." instance=ExtResource("1_xc7m7")]
+position = Vector2(80, 160)
+
+[node name="Wall10" parent="." instance=ExtResource("1_xc7m7")]
+position = Vector2(176, 64)
+
+[node name="Wall11" parent="." instance=ExtResource("1_xc7m7")]
+position = Vector2(176, 80)
+
+[node name="Wall12" parent="." instance=ExtResource("1_xc7m7")]
+position = Vector2(176, 96)
+
+[node name="Wall13" parent="." instance=ExtResource("1_xc7m7")]
+position = Vector2(176, 112)
+
+[node name="Wall14" parent="." instance=ExtResource("1_xc7m7")]
+position = Vector2(176, 128)
+
+[node name="Wall15" parent="." instance=ExtResource("1_xc7m7")]
+position = Vector2(176, 144)
+
+[node name="Wall16" parent="." instance=ExtResource("1_xc7m7")]
+position = Vector2(176, 160)
+
+[node name="Wall19" parent="." instance=ExtResource("1_xc7m7")]
+position = Vector2(96, 112)
+
+[node name="Wall20" parent="." instance=ExtResource("1_xc7m7")]
+position = Vector2(112, 112)
+
+[node name="Wall21" parent="." instance=ExtResource("1_xc7m7")]
+position = Vector2(128, 112)
+
+[node name="Wall23" parent="." instance=ExtResource("1_xc7m7")]
+position = Vector2(144, 112)
+
+[node name="Wall25" parent="." instance=ExtResource("1_xc7m7")]
+position = Vector2(160, 112)
+
+[node name="Wall28" parent="." instance=ExtResource("1_xc7m7")]
+position = Vector2(80, 64)

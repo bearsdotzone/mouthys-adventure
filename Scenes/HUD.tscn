@@ -1,0 +1,438 @@
+[gd_scene load_steps=28 format=3 uid="uid://dhwteywim5wph"]
+
+[ext_resource type="Script" path="res://Scenes/MenuInteraction.gd" id="1_2flka"]
+[ext_resource type="Script" path="res://Scripts/AttractScreenController.gd" id="1_p5ker"]
+[ext_resource type="Texture2D" uid="uid://qx5ob6q6nfip" path="res://Textures/MetalTile.png" id="1_pg71k"]
+[ext_resource type="LabelSettings" uid="uid://havo1wyoamwi" path="res://GUI_Text.tres" id="2_f4wjx"]
+[ext_resource type="FontFile" uid="uid://dv5qiy16bdgb3" path="res://m5x7.ttf" id="2_s8ow5"]
+[ext_resource type="Script" path="res://Scripts/GUI_Score.gd" id="3_0a0bi"]
+[ext_resource type="Script" path="res://Scripts/GUI_Level.gd" id="4_atge7"]
+[ext_resource type="Texture2D" uid="uid://cb0k3vhyr4a4b" path="res://Textures/Mouth.png" id="4_u3o5l"]
+[ext_resource type="Script" path="res://Scripts/GUI_Lives.gd" id="4_y0yg2"]
+[ext_resource type="Texture2D" uid="uid://bhcwqahfj12dl" path="res://Textures/Toothpaste.png" id="5_jvvlc"]
+[ext_resource type="Texture2D" uid="uid://c621yblxf8jox" path="res://Textures/Gun.png" id="6_jdhun"]
+[ext_resource type="Script" path="res://Scripts/GUI_Time.gd" id="6_obkhn"]
+[ext_resource type="Texture2D" uid="uid://cskv1j868vv5h" path="res://Textures/Dog.png" id="7_vjau2"]
+[ext_resource type="Texture2D" uid="uid://cmdhinsgipnk1" path="res://Textures/Peanut.png" id="8_v4eyf"]
+[ext_resource type="Script" path="res://Scripts/VolumeSlider.gd" id="9_b7lrc"]
+[ext_resource type="Script" path="res://Scripts/KillScreenController.gd" id="11_kjq6n"]
+[ext_resource type="Script" path="res://Scripts/GUI_CauseOfDeath.gd" id="12_cpqcy"]
+[ext_resource type="Script" path="res://Scripts/GUI_Hiscore.gd" id="12_ico66"]
+[ext_resource type="Script" path="res://Scripts/GUI_Stats.gd" id="12_n083q"]
+[ext_resource type="Texture2D" uid="uid://b5ppyp3ceij2k" path="res://Textures/Triangle.png" id="14_bph13"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ahghi"]
+line_spacing = 0.0
+font = ExtResource("2_s8ow5")
+font_size = 32
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_m0vhl"]
+line_spacing = 0.0
+font = ExtResource("2_s8ow5")
+font_size = 32
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uu87t"]
+texture = ExtResource("1_pg71k")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="LabelSettings" id="LabelSettings_bgo0x"]
+line_spacing = 0.0
+font = ExtResource("2_s8ow5")
+font_size = 32
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ey8gx"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pb6rk"]
+texture = ExtResource("14_bph13")
+expand_margin_top = 4.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ftrth"]
+
+[node name="HUD" type="Node2D"]
+
+[node name="UserInterface" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(320, 240)
+offset_right = 320.0
+offset_bottom = 240.0
+theme_override_constants/separation = 0
+
+[node name="Control" type="Control" parent="UserInterface"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Menu" type="Control" parent="UserInterface/Control"]
+custom_minimum_size = Vector2(260, 0)
+layout_mode = 2
+anchors_preset = 0
+offset_right = 260.0
+offset_bottom = 240.0
+size_flags_horizontal = 3
+script = ExtResource("1_2flka")
+
+[node name="MenuBackground" type="ColorRect" parent="UserInterface/Control/Menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.529412, 0.278431, 0.133333, 1)
+
+[node name="MenuContents" type="MarginContainer" parent="UserInterface/Control/Menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+script = ExtResource("1_p5ker")
+
+[node name="AttractScreenContents" type="VBoxContainer" parent="UserInterface/Control/Menu/MenuContents"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="UserInterface/Control/Menu/MenuContents/AttractScreenContents"]
+layout_mode = 2
+text = "Mouthy's
+Adventure"
+label_settings = SubResource("LabelSettings_ahghi")
+horizontal_alignment = 1
+
+[node name="CreditLineContainer" type="HBoxContainer" parent="UserInterface/Control/Menu/MenuContents/AttractScreenContents"]
+layout_mode = 2
+
+[node name="ByLine" type="Label" parent="UserInterface/Control/Menu/MenuContents/AttractScreenContents/CreditLineContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "by Bears"
+label_settings = ExtResource("2_f4wjx")
+horizontal_alignment = 1
+
+[node name="Credits" type="Button" parent="UserInterface/Control/Menu/MenuContents/AttractScreenContents/CreditLineContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("2_s8ow5")
+theme_override_font_sizes/font_size = 16
+text = "and More"
+
+[node name="LabelInstructions" type="Label" parent="UserInterface/Control/Menu/MenuContents/AttractScreenContents"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Instructions:"
+label_settings = ExtResource("2_f4wjx")
+horizontal_alignment = 1
+
+[node name="Instructions" type="HFlowContainer" parent="UserInterface/Control/Menu/MenuContents/AttractScreenContents"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="ControlsTextContainer" type="HBoxContainer" parent="UserInterface/Control/Menu/MenuContents/AttractScreenContents/Instructions"]
+layout_mode = 2
+
+[node name="ControlsText" type="Label" parent="UserInterface/Control/Menu/MenuContents/AttractScreenContents/Instructions/ControlsTextContainer"]
+layout_mode = 2
+text = "Use your mouse to control Mouthy"
+label_settings = ExtResource("2_f4wjx")
+
+[node name="IconPC" type="TextureRect" parent="UserInterface/Control/Menu/MenuContents/AttractScreenContents/Instructions/ControlsTextContainer"]
+layout_mode = 2
+texture = ExtResource("4_u3o5l")
+flip_v = true
+
+[node name="IconPC2" type="TextureRect" parent="UserInterface/Control/Menu/MenuContents/AttractScreenContents/Instructions/ControlsTextContainer/IconPC"]
+layout_mode = 0
+offset_right = 16.0
+offset_bottom = 16.0
+texture = ExtResource("4_u3o5l")
+flip_h = true
+
+[node name="PowerupsTextContainer" type="HBoxContainer" parent="UserInterface/Control/Menu/MenuContents/AttractScreenContents/Instructions"]
+layout_mode = 2
+
+[node name="Collect" type="Label" parent="UserInterface/Control/Menu/MenuContents/AttractScreenContents/Instructions/PowerupsTextContainer"]
+layout_mode = 2
+text = "Eat:"
+label_settings = ExtResource("2_f4wjx")
+
+[node name="ItemToothpaste" type="TextureRect" parent="UserInterface/Control/Menu/MenuContents/AttractScreenContents/Instructions/PowerupsTextContainer"]
+layout_mode = 2
+texture = ExtResource("5_jvvlc")
+
+[node name="EnemiesTextContainer" type="HBoxContainer" parent="UserInterface/Control/Menu/MenuContents/AttractScreenContents/Instructions"]
+layout_mode = 2
+
+[node name="Avoid" type="Label" parent="UserInterface/Control/Menu/MenuContents/AttractScreenContents/Instructions/EnemiesTextContainer"]
+layout_mode = 2
+text = "Do Not Eat:"
+label_settings = ExtResource("2_f4wjx")
+
+[node name="ItemGun" type="TextureRect" parent="UserInterface/Control/Menu/MenuContents/AttractScreenContents/Instructions/EnemiesTextContainer"]
+layout_mode = 2
+texture = ExtResource("6_jdhun")
+
+[node name="ItemDog" type="TextureRect" parent="UserInterface/Control/Menu/MenuContents/AttractScreenContents/Instructions/EnemiesTextContainer"]
+layout_mode = 2
+texture = ExtResource("7_vjau2")
+
+[node name="ItemPeanut" type="TextureRect" parent="UserInterface/Control/Menu/MenuContents/AttractScreenContents/Instructions/EnemiesTextContainer"]
+layout_mode = 2
+texture = ExtResource("8_v4eyf")
+
+[node name="InstructionsTextContainer" type="HBoxContainer" parent="UserInterface/Control/Menu/MenuContents/AttractScreenContents/Instructions"]
+layout_mode = 2
+
+[node name="InstructionsText" type="Label" parent="UserInterface/Control/Menu/MenuContents/AttractScreenContents/Instructions/InstructionsTextContainer"]
+layout_mode = 2
+text = "Mouthy must eat toothpaste to live.
+Collect all 10 toothpastes in a level
+to proceed. You lose if you run out of time
+or run out of lives."
+label_settings = ExtResource("2_f4wjx")
+horizontal_alignment = 1
+
+[node name="IconPC" type="TextureRect" parent="UserInterface/Control/Menu/MenuContents/AttractScreenContents/Instructions/InstructionsTextContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("4_u3o5l")
+flip_v = true
+
+[node name="IconPC2" type="TextureRect" parent="UserInterface/Control/Menu/MenuContents/AttractScreenContents/Instructions/InstructionsTextContainer/IconPC"]
+layout_mode = 0
+offset_right = 16.0
+offset_bottom = 16.0
+texture = ExtResource("4_u3o5l")
+flip_h = true
+
+[node name="StartInstructions" type="Label" parent="UserInterface/Control/Menu/MenuContents/AttractScreenContents"]
+layout_mode = 2
+text = "Click here to begin"
+label_settings = SubResource("LabelSettings_m0vhl")
+horizontal_alignment = 1
+
+[node name="CreditsPane" type="Panel" parent="UserInterface/Control/Menu/MenuContents"]
+visible = false
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_uu87t")
+
+[node name="CreditsCloseButton" type="Button" parent="UserInterface/Control/Menu/MenuContents/CreditsPane"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -18.0
+offset_bottom = 31.0
+grow_horizontal = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("2_s8ow5")
+theme_override_font_sizes/font_size = 32
+text = "X"
+flat = true
+
+[node name="CreditsText" type="Label" parent="UserInterface/Control/Menu/MenuContents/CreditsPane"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Credits: m5x7 by Daniel Linssen
+Stage ^ by Rosalila Studio (CC-BY-SA 3.0)
+Driving Game Stylish Retro Beat -
+SOUND AIRYLUVS
+by ISAo https://airyluvs.com/ (OGA-BY 3.0)
+Fast Level loop (8-bit chiptune)
+by @wyver9 (CC-BY-SA 3.0)
+Grey Sector (8-Bit)
+by FoxSynergy (CC-BY-SA 3.0)"
+label_settings = ExtResource("2_f4wjx")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="KillScreen" type="Control" parent="UserInterface/Control"]
+visible = false
+layout_mode = 2
+anchors_preset = 0
+offset_right = 260.0
+offset_bottom = 240.0
+size_flags_horizontal = 3
+script = ExtResource("11_kjq6n")
+
+[node name="ColorRect" type="ColorRect" parent="UserInterface/Control/KillScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.541176, 0.223529, 0.290196, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UserInterface/Control/KillScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LabelGameOver" type="Label" parent="UserInterface/Control/KillScreen/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 10
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_bgo0x")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelCauseOfDeath" type="Label" parent="UserInterface/Control/KillScreen/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "You ran out of time"
+label_settings = ExtResource("2_f4wjx")
+horizontal_alignment = 1
+script = ExtResource("12_cpqcy")
+
+[node name="LabelStats" type="Label" parent="UserInterface/Control/KillScreen/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 2
+text = "Final Score: {}
+New Hiscore!
+Final Level: {}
+Final Lives: {}
+Final Time: {}"
+label_settings = ExtResource("2_f4wjx")
+horizontal_alignment = 1
+script = ExtResource("12_n083q")
+
+[node name="Scoreboard" type="Control" parent="UserInterface"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="UserInterface/Scoreboard"]
+layout_mode = 0
+offset_right = 60.0
+offset_bottom = 240.0
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_vertical = 3
+texture = ExtResource("1_pg71k")
+stretch_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="UserInterface/Scoreboard"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UserInterface/Scoreboard/MarginContainer"]
+layout_mode = 2
+
+[node name="Text_Score" type="Label" parent="UserInterface/Scoreboard/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "SCORE:"
+label_settings = ExtResource("2_f4wjx")
+horizontal_alignment = 1
+
+[node name="Value_Score" type="Label" parent="UserInterface/Scoreboard/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_ey8gx")
+text = "0"
+label_settings = ExtResource("2_f4wjx")
+horizontal_alignment = 1
+clip_text = true
+script = ExtResource("3_0a0bi")
+
+[node name="Text_Hiscore" type="Label" parent="UserInterface/Scoreboard/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "HISCORE:"
+label_settings = ExtResource("2_f4wjx")
+horizontal_alignment = 1
+
+[node name="Value_Hiscore" type="Label" parent="UserInterface/Scoreboard/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_ey8gx")
+text = "10000"
+label_settings = ExtResource("2_f4wjx")
+horizontal_alignment = 1
+clip_text = true
+script = ExtResource("12_ico66")
+
+[node name="Text_Level" type="Label" parent="UserInterface/Scoreboard/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "LEVEL:"
+label_settings = ExtResource("2_f4wjx")
+horizontal_alignment = 1
+
+[node name="Value_Level" type="Label" parent="UserInterface/Scoreboard/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_ey8gx")
+text = "1"
+label_settings = ExtResource("2_f4wjx")
+horizontal_alignment = 1
+script = ExtResource("4_atge7")
+
+[node name="Text_Lives" type="Label" parent="UserInterface/Scoreboard/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "LIVES:"
+label_settings = ExtResource("2_f4wjx")
+horizontal_alignment = 1
+
+[node name="Value_Lives" type="Label" parent="UserInterface/Scoreboard/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_ey8gx")
+text = "3"
+label_settings = ExtResource("2_f4wjx")
+horizontal_alignment = 1
+script = ExtResource("4_y0yg2")
+
+[node name="Text_Time" type="Label" parent="UserInterface/Scoreboard/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "TIME:"
+label_settings = ExtResource("2_f4wjx")
+horizontal_alignment = 1
+
+[node name="Value_Time" type="Label" parent="UserInterface/Scoreboard/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_ey8gx")
+text = "200"
+label_settings = ExtResource("2_f4wjx")
+horizontal_alignment = 1
+script = ExtResource("6_obkhn")
+
+[node name="VolumeSliderLabel" type="Label" parent="UserInterface/Scoreboard/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "VOLUME:"
+label_settings = ExtResource("2_f4wjx")
+horizontal_alignment = 1
+
+[node name="VolumeSlider" type="HSlider" parent="UserInterface/Scoreboard/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/slider = SubResource("StyleBoxTexture_pb6rk")
+theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_ftrth")
+max_value = 1.0
+step = 0.05
+value = 1.0
+script = ExtResource("9_b7lrc")
+
+[connection signal="pressed" from="UserInterface/Control/Menu/MenuContents/AttractScreenContents/CreditLineContainer/Credits" to="UserInterface/Control/Menu/MenuContents" method="_on_button_pressed"]
+[connection signal="pressed" from="UserInterface/Control/Menu/MenuContents/CreditsPane/CreditsCloseButton" to="UserInterface/Control/Menu/MenuContents" method="_on_button_pressed"]
+[connection signal="value_changed" from="UserInterface/Scoreboard/MarginContainer/VBoxContainer/VolumeSlider" to="UserInterface/Scoreboard/MarginContainer/VBoxContainer/VolumeSlider" method="_on_value_changed"]

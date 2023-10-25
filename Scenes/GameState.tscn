@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://ddrqjjkn4flly"]
+
+[ext_resource type="Script" path="res://Scripts/GameState.gd" id="1_jfgdt"]
+[ext_resource type="PackedScene" uid="uid://dhwteywim5wph" path="res://Scenes/HUD.tscn" id="2_aalna"]
+[ext_resource type="AudioStream" uid="uid://c0lpl81qb3nfy" path="res://Sounds/track_^.ogg" id="2_t4h3b"]
+
+[node name="GameState" type="Node2D"]
+script = ExtResource("1_jfgdt")
+
+[node name="GeneratedGameWorld" type="Node2D" parent="."]
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_t4h3b")
+autoplay = true
+
+[node name="HUD" parent="." instance=ExtResource("2_aalna")]

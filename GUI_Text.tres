@@ -1,0 +1,8 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://havo1wyoamwi"]
+
+[ext_resource type="FontFile" uid="uid://dv5qiy16bdgb3" path="res://m5x7.ttf" id="1_8jqqa"]
+
+[resource]
+line_spacing = 0.0
+font = ExtResource("1_8jqqa")
+shadow_color = Color(0, 0, 0, 1)

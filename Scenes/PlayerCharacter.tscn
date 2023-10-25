@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://rlvwtkl3jdfp"]
+
+[ext_resource type="Script" path="res://Pawn.gd" id="1_ylb5y"]
+[ext_resource type="Script" path="res://Scripts/AnimMouth.gd" id="2_13lyd"]
+[ext_resource type="Texture2D" uid="uid://cb0k3vhyr4a4b" path="res://Textures/Mouth.png" id="3_v5yj1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c6ws4"]
+radius = 8.0
+
+[node name="PlayerCharacter" type="RigidBody2D" groups=["PlayerCharacter"]]
+collision_layer = 5
+collision_mask = 3
+gravity_scale = 0.0
+continuous_cd = 2
+max_contacts_reported = 30
+contact_monitor = true
+linear_damp = 1.0
+angular_damp = 5.0
+script = ExtResource("1_ylb5y")
+
+[node name="Mouth" type="Node2D" parent="."]
+position = Vector2(-8, -8)
+script = ExtResource("2_13lyd")
+
+[node name="MouthTop" type="Sprite2D" parent="Mouth"]
+texture = ExtResource("3_v5yj1")
+centered = false
+
+[node name="MouthBottom" type="Sprite2D" parent="Mouth"]
+texture = ExtResource("3_v5yj1")
+centered = false
+flip_h = true
+flip_v = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_c6ws4")
+
+[node name="CrunchParticles" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 30
+lifetime = 0.25
+one_shot = true
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 40.0
+initial_velocity_max = 60.0

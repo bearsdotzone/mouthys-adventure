@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://cixvdru8i6wlw"]
+
+[ext_resource type="Script" path="res://Scripts/EnemyDog.gd" id="1_oxol6"]
+[ext_resource type="Texture2D" uid="uid://cskv1j868vv5h" path="res://Textures/Dog.png" id="2_34ago"]
+[ext_resource type="AudioStream" uid="uid://bm0mrtime0dqm" path="res://Sounds/Dog Bark 3.wav" id="3_61c1n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4kk3c"]
+
+[node name="EnemyDog" type="RigidBody2D"]
+gravity_scale = 0.0
+max_contacts_reported = 4
+contact_monitor = true
+script = ExtResource("1_oxol6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_4kk3c")
+
+[node name="SpriteDog" type="Sprite2D" parent="."]
+texture = ExtResource("2_34ago")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_61c1n")

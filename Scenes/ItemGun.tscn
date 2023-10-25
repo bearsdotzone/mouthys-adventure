@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://chh0smhgf6wdn"]
+
+[ext_resource type="Script" path="res://Scripts/TouchGun.gd" id="1_jnsy8"]
+[ext_resource type="Texture2D" uid="uid://c621yblxf8jox" path="res://Textures/Gun.png" id="2_wrv6s"]
+[ext_resource type="AudioStream" uid="uid://wbt5bba3spmo" path="res://Sounds/phaser.ogg" id="3_qe55u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8i1na"]
+
+[node name="Gun" type="Area2D"]
+collision_mask = 4
+script = ExtResource("1_jnsy8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_8i1na")
+
+[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
+texture = ExtResource("2_wrv6s")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_qe55u")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://bvs3fd1aw085j"]
+
+[ext_resource type="Texture2D" uid="uid://cnikd72jt8ivv" path="res://Textures/Clouds.png" id="1_xcbna"]
+[ext_resource type="Script" path="res://Scripts/WorldBackground.gd" id="2_6f8al"]
+[ext_resource type="PackedScene" uid="uid://rlvwtkl3jdfp" path="res://Scenes/PlayerCharacter.tscn" id="3_lkf5o"]
+[ext_resource type="Script" path="res://Scripts/WorldGenerator.gd" id="5_38swv"]
+
+[node name="World" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+texture_repeat = 2
+texture = ExtResource("1_xcbna")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 320, 240)
+script = ExtResource("2_6f8al")
+
+[node name="PlayerCharacter" parent="." instance=ExtResource("3_lkf5o")]
+position = Vector2(151, 114)
+
+[node name="GeneratedWorld" type="Node2D" parent="."]
+script = ExtResource("5_38swv")

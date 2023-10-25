@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://cghw75i6suq75"]
+
+[ext_resource type="Script" path="res://Scripts/EnemyPeanut.gd" id="1_ov18c"]
+[ext_resource type="Texture2D" uid="uid://cmdhinsgipnk1" path="res://Textures/Peanut.png" id="2_lrasy"]
+[ext_resource type="AudioStream" uid="uid://bm0mrtime0dqm" path="res://Sounds/Dog Bark 3.wav" id="3_on7vv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4kk3c"]
+
+[node name="EnemyDog" type="Area2D"]
+script = ExtResource("1_ov18c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_4kk3c")
+
+[node name="SpriteDog" type="Sprite2D" parent="."]
+texture = ExtResource("2_lrasy")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_on7vv")
