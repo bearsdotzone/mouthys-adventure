@@ -1,2 +1,14 @@
 # Godot 4+ specific ignores
 .godot/
+WebBin/index.apple-touch-icon.png
+WebBin/index.apple-touch-icon.png.import
+WebBin/index.audio.worklet.js
+WebBin/index.html
+WebBin/index.icon.png
+WebBin/index.icon.png.import
+WebBin/index.js
+WebBin/index.pck
+WebBin/index.png
+WebBin/index.png.import
+WebBin/index.wasm
+WebBin/index.worker.js
